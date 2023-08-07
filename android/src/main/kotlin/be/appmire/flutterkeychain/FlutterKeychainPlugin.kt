@@ -292,7 +292,7 @@ class FlutterKeychainPlugin : FlutterPlugin, MethodCallHandler {
 
             try {
                 preferences = registrar.context()
-                    .getSharedPreferences("FlutterKeychain", Context.MODE_PRIVATE)
+                    .getSharedPreferences("FlutterKeychain", Context.MODE_MULTI_PROCESS or Context.MODE_PRIVATE)
                 encryptor = AesStringEncryptor(
                     preferences = preferences,
                     keyWrapper = RsaKeyStoreKeyWrapper(registrar.context())
